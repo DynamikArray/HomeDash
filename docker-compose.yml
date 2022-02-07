@@ -1,6 +1,6 @@
 version: "3"
 services:
-  speedtester:
+  express-vue-stack:
     container_name: ExpressVueAppStack
     restart: always
     build: .

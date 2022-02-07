@@ -19,7 +19,7 @@ logger.info(`${APPLICATION_NAME} Starting in ${process.env.NODE_ENV} mode`);
 connectDb().then(async () => {
   logger.info(`${APPLICATION_NAME} Connected to Mongo`);
 
-  const port = process.env.PORT || 8080;
+  const port = process.env.PORT || 3000;
   server.listen(port);
 
   const events = require("events");
