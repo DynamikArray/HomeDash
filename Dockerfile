@@ -1,5 +1,7 @@
 FROM node:16
 
+#RUN  npm install @vue/cli -g
+
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -9,11 +11,14 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install pm2 -g && npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+WORKDIR /usr/src/app/client
+RUN npm install && npm run build
+
+EXPOSE 3000
+
+WORKDIR /usr/src/app
 CMD [ "pm2-runtime", "ecosystem.config.js", "--env=production"]

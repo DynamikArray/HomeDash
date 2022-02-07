@@ -1,32 +1,24 @@
-# SpeedTester
+# Express Vue App Stack
 
-##
+### Stuff i used to build this
 
-##
-
-### Requirements
-
-- node
-- mongo
+- Docker
 - Pm2
-- speedtester globally
+- mongo
+- Node
+- Express
+- Vue
+- Vuetify
 
-Speed tester library
+### Start Docker using docker-compose and supplying correct env file
 
-- speedtest module - https://github.com/ddsol/speedtest.net
-  - install globally - `npm install --global speedtest-net`
-  - accept liscense `speedtest-net --accept-license`
+-docker-compose --env-file ./config/.env.prod.pi up
+-docker-compose --env-file ./config/.env.prod.pi down
 
 Other Misc Stuff
 
 - configure Pm2 to run app
   pm2 start application.config.js --env production/development
-
-Configuration Stuff for Pm2 - followed this guide for setting up PM2 and having it restart with windows
-
-- https://blog.cloudboost.io/nodejs-pm2-startup-on-windows-db0906328d75
-  And then to get pm2 running on restarts followed this guide
-- https://opensourcelibs.com/lib/pm2-installer
 
 Resources
 https://betterprogramming.pub/dockerizing-react-app-and-express-api-with-mongodb-f3a06bebf570

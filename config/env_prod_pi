@@ -1,0 +1,2 @@
+HTTP_PORT=4200
+MONGO_IMAGE_NAME=arm64v8/mongo:4.4.12-focal
