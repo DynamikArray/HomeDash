@@ -17,7 +17,7 @@ module.exports = {
     disableHostCheck: false,
     proxy: {
       "/*": {
-        target: "http://localhost:8080",
+        target: "http://localhost:3000",
       },
     },
     stats: {
