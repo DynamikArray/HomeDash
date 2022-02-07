@@ -1,0 +1,11 @@
+const ACTION_TYPES = {
+  MAKE_API_CALL: "MAKE_API_CALL",
+};
+
+//actions
+const MUTATION_TYPES = {
+  ADD_API_CALL: "ADD_API_CALL",
+  REMOVE_API_CALL: "REMOVE_API_CALL",
+};
+
+module.exports = { ...ACTION_TYPES, ...MUTATION_TYPES };
