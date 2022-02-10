@@ -1,11 +1,14 @@
+const apiConstants = require("./api/api.constants.js");
+const devicesConstants = require("./devices/devices.constants.js");
+
 const ACTION_TYPES = {
-  MAKE_API_CALL: "MAKE_API_CALL",
+  ...apiConstants.ACTION_TYPES,
+  ...devicesConstants.ACTION_TYPES,
 };
 
-//actions
 const MUTATION_TYPES = {
-  ADD_API_CALL: "ADD_API_CALL",
-  REMOVE_API_CALL: "REMOVE_API_CALL",
+  ...apiConstants.MUTATION_TYPES,
+  ...devicesConstants.MUTATION_TYPES,
 };
 
 module.exports = { ...ACTION_TYPES, ...MUTATION_TYPES };

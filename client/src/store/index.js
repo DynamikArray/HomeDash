@@ -4,10 +4,12 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 import api from "./api";
+import devices from "./devices";
 
 export default new Vuex.Store({
   modules: {
     api,
+    devices,
   },
   state: {
     socketStatus: false,
