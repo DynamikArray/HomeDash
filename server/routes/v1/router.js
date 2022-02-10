@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
-const thingsRouter = require("./things/routes");
+const devicesRouter = require("./devices/routes");
 
-router.use("/things", thingsRouter);
+router.use("/devices", devicesRouter);
 
 module.exports = router;
