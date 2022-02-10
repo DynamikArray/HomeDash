@@ -19,8 +19,8 @@ const devices = {
     getHubitatLoading: (state) => {
       return state.hubitatLoading;
     },
-    getHubitatResults: (state) => {
-      return state.hubitatResults;
+    getHubitatDevices: (state) => {
+      return state.hubitatDevices;
     },
   },
   mutations: {
