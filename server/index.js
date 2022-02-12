@@ -8,6 +8,10 @@ const { logger } = require("./util/logger");
 const { server, io } = require("./server");
 //Mongo
 const { connectDb } = require("./services/mongooseService");
+//Event Emitter
+const { em } = require("./services/EventEmitterService");
+//Hubitat Socket Event Stream
+const hubitatSocketClient = require("./services/hubitatSocketService")();
 
 //scheduled job settings
 const schedule = require("node-schedule");
@@ -21,9 +25,6 @@ connectDb().then(async () => {
 
   const port = process.env.PORT || 3000;
   server.listen(port);
-
-  const events = require("events");
-  const em = new events.EventEmitter();
 
   require("./routes/socket")(io, em);
 

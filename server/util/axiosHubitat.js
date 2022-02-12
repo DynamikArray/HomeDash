@@ -2,7 +2,7 @@ const axios = require("axios");
 const serviceConfigs = require("../config/serviceConfigs");
 
 //Create axios instance with default configs
-const axiosHubitat = axios.create({ ...serviceConfigs.hubitat });
+const axiosHubitat = axios.create({ ...serviceConfigs.hubitatRest });
 
 //Set up axios instance with default params
 axiosHubitat.defaults.params = {};

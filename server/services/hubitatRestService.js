@@ -1,7 +1,7 @@
 const { logger } = require("../util/logger");
 const axiosHubitat = require("../util/axiosHubitat");
 
-const hubitatService = () => ({
+const hubitatRestService = () => ({
   getAllDevices: async () => {
     try {
       const results = await axiosHubitat.get("/devices/all");
@@ -25,4 +25,4 @@ const hubitatService = () => ({
   },
 });
 
-module.exports = hubitatService;
+module.exports = hubitatRestService;

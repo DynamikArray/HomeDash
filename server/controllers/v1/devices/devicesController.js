@@ -1,9 +1,9 @@
 const { logger } = require("../../../util/logger");
-const hubitatService = require("../../../services/hubitatService")();
+const hubitatRestService = require("../../../services/hubitatRestService")();
 
 async function getAllHubitat(req, res, next) {
   try {
-    const result = await hubitatService.getAllDevices();
+    const result = await hubitatRestService.getAllDevices();
     res.send(result);
   } catch (e) {
     //correctly json handle this error message
