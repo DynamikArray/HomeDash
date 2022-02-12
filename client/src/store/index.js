@@ -5,11 +5,13 @@ Vue.use(Vuex);
 
 import api from "./api";
 import devices from "./devices";
+import hubEvents from "./hubEvents";
 
 export default new Vuex.Store({
   modules: {
     api,
     devices,
+    hubEvents,
   },
   state: {
     socketStatus: false,
