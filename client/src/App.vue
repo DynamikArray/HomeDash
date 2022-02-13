@@ -11,7 +11,7 @@
 
 <script>
 import Header from "@/components/Layout/Header";
-import Drawer from "@/components/Layout/Drawer";
+import Drawer from "@/components/Layout/Drawer/Drawer";
 import Footer from "@/components/Layout/Footer";
 export default {
   name: "App",
