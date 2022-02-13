@@ -1,5 +1,5 @@
 <template>
-  <BaseTransition :name="name" :id="id">
+  <BaseTransition :name="name" :id="id" :slideX="slideX" :slideY="slideY">
     <slot></slot>
   </BaseTransition>
 </template>
@@ -17,7 +17,15 @@ export default {
       type: [String],
     },
     id: {
-      type: [Number],
+      type: [Number, String],
+    },
+    slideX: {
+      type: [Boolean],
+      default: false,
+    },
+    slideY: {
+      type: [Boolean],
+      default: true,
     },
   },
 };
