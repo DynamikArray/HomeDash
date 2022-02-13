@@ -1,42 +1,33 @@
 <template>
   <div>
-    <div>Events</div>
-    <div class="grey darken-4 my-2">
-      <h3>Most Recent Event</h3>
-      <v-list two-line class="text-left">
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title> {{ mostRecent.displayName }} </v-list-item-title>
-            <v-list-item-subtitle>
-              {{ mostRecent.descriptionText }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+    <h1>Events</h1>
+
+    <div class="my-2">
+      <h3>Most Recent Event:</h3>
+      <HubSingleEventList v-if="mostRecent" :item="mostRecent" :name="mostRecent.name" :id="mostRecent.deviceId" />
+      <div v-else class="text-subtitle">No events received yet</div>
     </div>
 
-    <div class="grey darken-4 my-2">
+    <div class="my-2">
       <h3>Last 100 Events</h3>
-      <v-list two-line class="text-left">
-        <v-list-item v-for="(message, index) in allEvents" :key="Date.now() + message.deviceId + '_' + index">
-          <v-list-item-content>
-            <v-list-item-title> {{ mostRecent.displayName }} </v-list-item-title>
-            <v-list-item-subtitle>
-              {{ mostRecent.descriptionText }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <HubMultiEventList v-if="allEvents" :items="allEvents" name="Last100Events" id="HubEvents" />
+      <div v-else class="text-subtitle">No events received yet</div>
     </div>
   </div>
 </template>
 
 <script>
+import HubSingleEventList from "@/components/HomeDash/HubEventList/HubSingleEventList";
+import HubMultiEventList from "@/components/HomeDash/HubEventList/HubMultiEventList";
+
 import { mapGetters } from "vuex";
 
 export default {
   name: "HubEvents",
-  components: {},
+  components: {
+    HubSingleEventList,
+    HubMultiEventList,
+  },
   computed: {
     ...mapGetters({
       mostRecent: "hubEvents/getMostRecentEvent",

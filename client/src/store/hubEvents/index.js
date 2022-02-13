@@ -9,7 +9,10 @@ const hubEvents = {
   },
   getters: {
     getAllEvents: (state) => {
-      return state.events;
+      if (state.events.length > 0) {
+        return state.events;
+      }
+      return false;
     },
     getMostRecentEvent: (state) => {
       if (state.events.length > 0) {
