@@ -4,12 +4,17 @@
       <h2 class="shadow">{{ applicationName }}</h2>
     </div>
     <v-spacer></v-spacer>
+    <BtnDrawer />
   </v-app-bar>
 </template>
 
 <script>
+import BtnDrawer from "@/components/HomeDash/Buttons/BtnDrawer";
 export default {
-  name: "st-header",
+  name: "hd-Header",
+  components: {
+    BtnDrawer,
+  },
   computed: {
     applicationName() {
       return this.$config.APPLICATION_NAME;

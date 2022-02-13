@@ -40,6 +40,7 @@ const api = {
           ...config,
         });
       } catch (e) {
+        /*
         if (e.response.status === 401 || e.response.status === 403) {
           if (this.$app.$router.history.current.name !== "Login") this.$app.$router.push({ path: "login" });
           this.$app.$toastr.e("You need to be logged in to continue.");
@@ -47,6 +48,8 @@ const api = {
           console.log(e);
           if (e.message) this.$app.$toastr.e(e.message);
         }
+        */
+        console.log(e);
         return false;
       } finally {
         commit(`${REMOVE_API_CALL}`);

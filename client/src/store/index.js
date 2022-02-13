@@ -3,12 +3,14 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+import app from "./app";
 import api from "./api";
 import devices from "./devices";
 import hubEvents from "./hubEvents";
 
 export default new Vuex.Store({
   modules: {
+    app,
     api,
     devices,
     hubEvents,
