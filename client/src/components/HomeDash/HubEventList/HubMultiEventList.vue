@@ -7,7 +7,16 @@
         class="secondary rounded-lg darken-4 mb-2"
       >
         <v-list-item-content>
-          <v-list-item-title class="ma-0 pa-0"> {{ message.displayName }} </v-list-item-title>
+          <v-list-item-title class="ma-0 pa-0">
+            <div class="d-flex align-center justify-space-between">
+              <div class="d-flex align-center">
+                {{ message.displayName }}
+              </div>
+              <div class="d-flex align-center" v-if="message.counter > 1">
+                {{ message.counter }}
+              </div>
+            </div>
+          </v-list-item-title>
           <v-list-item-subtitle>
             {{ message.descriptionText }}
           </v-list-item-subtitle>

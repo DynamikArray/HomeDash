@@ -11,6 +11,7 @@
     "@fortawesome/fontawesome-free": "5.15.3",
     "axios": "^0.25.0",
     "core-js": "^3.6.5",
+    "lodash.isequal": "^4.5.0",
     "roboto-fontface": "*",
     "socket.io-client": "2.3.1",
     "vue": "^2.6.11",
