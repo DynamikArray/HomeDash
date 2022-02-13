@@ -1,19 +1,20 @@
 <template>
-  <v-list color="secondary darken-1 px-4 ma-0" two-line class="text-left">
+  <v-list color="" two-line class="text-left ma-0 pa-0">
     <BaseLog :name="name" :id="+id">
       <v-list-item
         v-for="(message, index) in items"
         :key="Date.now() + message.deviceId + '_' + index"
-        class="secondary rounded-lg px-4 darken-4 my-4"
+        class="secondary rounded-lg darken-4 mb-2"
       >
         <v-list-item-content>
-          <v-list-item-title> {{ message.displayName }} </v-list-item-title>
+          <v-list-item-title class="ma-0 pa-0"> {{ message.displayName }} </v-list-item-title>
           <v-list-item-subtitle>
             {{ message.descriptionText }}
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </BaseLog>
+    <div class="text-overline text-center">End Results</div>
   </v-list>
 </template>
 

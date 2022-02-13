@@ -1,6 +1,6 @@
 <template>
   <BaseLog :name="name" :id="id">
-    <v-list two-line class="text-left secondary rounded-lg pa-2 darken-4">
+    <v-list two-line class="text-left secondary rounded-lg darken-4 ma-0 pa-0">
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title> {{ item.displayName }} </v-list-item-title>

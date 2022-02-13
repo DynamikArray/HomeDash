@@ -27,7 +27,7 @@
 
 <script>
 import BaseLog from "@/components/HomeDash/Base/BaseLog/BaseLog";
-import ServerSocketStatus from "@/components/Socket/ServerSocketStatus";
+import ServerSocketStatus from "@/components/HomeDash/Socket/ServerSocketStatus";
 
 import { mapGetters } from "vuex";
 

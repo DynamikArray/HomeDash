@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <h1>Events</h1>
-
+  <div class="ml-1 mr-2">
     <div class="my-2">
       <h3>Most Recent Event:</h3>
-      <HubSingleEventList v-if="mostRecent" :item="mostRecent" :name="mostRecent.name" :id="mostRecent.deviceId" />
+      <HubSingleEventList
+        v-if="mostRecent"
+        :item="mostRecent"
+        :name="mostRecent.name"
+        :id="`${mostRecent.deviceId}-${mostRecent.value}`"
+      />
       <div v-else class="text-subtitle">No events received yet</div>
     </div>
 
     <div class="my-2">
-      <h3>Last 100 Events</h3>
+      <h3>Last 100 Events:</h3>
       <HubMultiEventList v-if="allEvents" :items="allEvents" name="Last100Events" id="HubEvents" />
       <div v-else class="text-subtitle">No events received yet</div>
     </div>
@@ -23,7 +26,7 @@ import HubMultiEventList from "@/components/HomeDash/HubEventList/HubMultiEventL
 import { mapGetters } from "vuex";
 
 export default {
-  name: "HubEvents",
+  name: "hd-EventsList",
   components: {
     HubSingleEventList,
     HubMultiEventList,
