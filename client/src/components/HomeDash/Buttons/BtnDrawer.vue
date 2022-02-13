@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="d-flex align-center justify-end">
+    <div class="shadow">Devices & Events</div>
     <v-btn icon @click="onClickHandler"><v-icon class="shadow">fas fa-columns</v-icon></v-btn>
   </div>
 </template>

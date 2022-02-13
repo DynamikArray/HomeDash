@@ -1,31 +1,10 @@
 <template>
   <div>
     <div>Devices</div>
-    <div class="grey darken-4">
-      <p>Stuff and things</p>
-
-      <v-list three-line class="text-left">
-        <v-list-item v-for="device in hubitatDevices" :key="device.id">
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ device.label }}
-            </v-list-item-title>
-            <v-list-item-subtitle>
-              <div class="d-flex align-start">
-                <div class="mr-3 text-subtitle2">
-                  <span class="">Name:</span> <span class="font-weight-bold"> {{ device.name }}</span>
-                </div>
-                <div class="mr-3 text-subtitle2">
-                  <span class="">Type:</span> <span class="font-weight-bold"> {{ device.type }}</span>
-                </div>
-              </div>
-            </v-list-item-subtitle>
-            <div class="d-flex text-caption">
-              {{ device.commands }}
-            </div>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+    <div v-if="hubitatDevices.length > 0" class="d-flex align-start justify-start flex-wrap">
+      <div class="d-flex ma-4" v-for="device in hubitatDevices" :key="device.id">
+        <BaseSwitch :device="device" />
+      </div>
     </div>
   </div>
 </template>
@@ -34,9 +13,13 @@
 import { FETCH_DEVICES_HUBITAT } from "@/store/store.constants.js";
 import { mapGetters } from "vuex";
 
+import BaseSwitch from "@/components/HomeDash/Base/BaseSwitch/BaseSwitch";
+
 export default {
   name: "Devices",
-  components: {},
+  components: {
+    BaseSwitch,
+  },
   async mounted() {
     await this.$store.dispatch(`devices/${FETCH_DEVICES_HUBITAT}`);
   },
