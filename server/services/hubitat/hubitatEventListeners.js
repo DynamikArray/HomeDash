@@ -1,7 +1,7 @@
 //logger instance
-const { logger } = require("../util/logger");
+const { logger } = require("../../util/logger");
 //hubitat configuration constants
-const { emitterPrefix, events } = require("../config/serviceConfigs").hubitatSocket;
+const { emitterPrefix, events } = require("../../config/serviceConfigs").hubitatSocket;
 
 const hubitatEventListeners = (io) => {
   /**
@@ -21,6 +21,10 @@ const hubitatEventListeners = (io) => {
     logger.debug("socketIndex | CONNECTION_MESSAGE | message | " + shortDesc);
   }
 
+  async function connectSucces() {
+    io.emit(emitterPrefix + events.CONNECT);
+  }
+
   async function connectFailed(error) {
     io.emit(emitterPrefix + events.CONNECTION_MESSAGE, error.toString());
   }
@@ -33,7 +37,7 @@ const hubitatEventListeners = (io) => {
     io.emit(emitterPrefix + events.CONNECTION_ERROR, error.toString());
   }
 
-  return { messageHandler, connectFailed, connectionClose, connectionError };
+  return { messageHandler, connectSucces, connectFailed, connectionClose, connectionError };
 };
 
 module.exports = hubitatEventListeners;

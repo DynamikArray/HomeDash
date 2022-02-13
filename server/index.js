@@ -11,7 +11,7 @@ const { connectDb } = require("./services/mongooseService");
 //Event Emitter
 const { em } = require("./services/EventEmitterService");
 //Hubitat Socket Event Stream
-const hubitatSocketClient = require("./services/hubitatSocketService")();
+const hubitatSocketClient = require("./services/hubitat/hubitatSocketService")();
 
 //scheduled job settings
 const schedule = require("node-schedule");

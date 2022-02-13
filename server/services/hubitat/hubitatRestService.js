@@ -1,5 +1,5 @@
-const { logger } = require("../util/logger");
-const axiosHubitat = require("../util/axiosHubitat");
+const { logger } = require("../../util/logger");
+const axiosHubitat = require("../../util/axiosHubitat");
 
 const hubitatRestService = () => ({
   getAllDevices: async () => {

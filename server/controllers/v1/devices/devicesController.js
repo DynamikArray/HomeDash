@@ -1,5 +1,5 @@
 const { logger } = require("../../../util/logger");
-const hubitatRestService = require("../../../services/hubitatRestService")();
+const hubitatRestService = require("../../../services/hubitat/hubitatRestService")();
 
 async function getAllHubitat(req, res, next) {
   try {

@@ -4,13 +4,14 @@ const { logger } = require("../../util/logger");
 const { emitterPrefix, events } = require("../../config/serviceConfigs").hubitatSocket;
 
 module.exports = (io, em) => {
-  const hubitatEventListeners = require("../../services/hubitatEventListeners")(io);
+  const hubitatEventListeners = require("../../services/hubitat/hubitatEventListeners")(io);
 
   io.on("connection", function (socket) {
-    logger.info("socketIndex | onConnection | success | socketId =" + socket.id);
+    logger.info("socketRouteIndex | onConnection | success | socketId =" + socket.id);
     //require any needed socket routing here
   });
 
+  em.on(emitterPrefix + events.CONNECT, hubitatEventListeners.connectSucces);
   em.on(emitterPrefix + events.CONNECT_FAILED, hubitatEventListeners.connectFailed);
   em.on(emitterPrefix + events.CONNECTION_MESSAGE, hubitatEventListeners.messageHandler);
   em.on(emitterPrefix + events.CONNECTION_CLOSE, hubitatEventListeners.connectionClose);

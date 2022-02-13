@@ -3,23 +3,13 @@
     <div class="d-flex align-center">
       <h2 class="shadow">{{ applicationName }}</h2>
     </div>
-
     <v-spacer></v-spacer>
-
-    <SocketStatus />
   </v-app-bar>
 </template>
 
 <script>
-import SocketStatus from "@/components/Socket/SocketStatus";
 export default {
   name: "st-header",
-  components: {
-    SocketStatus,
-  },
-  mounted() {
-    this.$config.KEY;
-  },
   computed: {
     applicationName() {
       return this.$config.APPLICATION_NAME;
