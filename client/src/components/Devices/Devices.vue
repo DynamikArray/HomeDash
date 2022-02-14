@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { FETCH_DEVICES_HUBITAT } from "@/store/store.constants.js";
 import { mapGetters } from "vuex";
 
 import BaseSwitch from "@/components/HomeDash/Base/BaseSwitch/BaseSwitch";
@@ -19,9 +18,6 @@ export default {
   name: "Devices",
   components: {
     BaseSwitch,
-  },
-  async mounted() {
-    await this.$store.dispatch(`devices/${FETCH_DEVICES_HUBITAT}`);
   },
   computed: {
     ...mapGetters({

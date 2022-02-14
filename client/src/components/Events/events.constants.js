@@ -5,6 +5,9 @@ const EVENT_NAMES = {
   temperature: {
     iconString: "fas fa-thermometer-half",
   },
+  level: {
+    iconString: "fas fa-sliders-h fa-rotate-90",
+  },
 };
 
 module.exports = { EVENT_NAMES };

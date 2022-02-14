@@ -53,7 +53,7 @@ export default {
       if (EVENT_NAMES[val]) {
         iconString = EVENT_NAMES[val].iconString;
       } else {
-        iconString = "fas fa-bolt";
+        iconString = "fas fa-question-circle";
       }
 
       return iconString;

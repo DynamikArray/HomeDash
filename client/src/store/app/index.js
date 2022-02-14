@@ -8,7 +8,7 @@ const app = {
   namespaced: true,
   state: {
     drawer: true,
-    drawerTab: 1,
+    drawerTab: 0,
   },
   getters: {
     getAppDrawer: (state) => {

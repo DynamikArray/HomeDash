@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { FETCH_DEVICES_HUBITAT } from "@/store/store.constants.js";
+
 import Header from "@/components/Layout/Header";
 import Drawer from "@/components/Layout/Drawer/Drawer";
 import Footer from "@/components/Layout/Footer";
@@ -20,9 +22,9 @@ export default {
     Drawer,
     Footer,
   },
-  data: () => ({
-    //
-  }),
+  async mounted() {
+    await this.$store.dispatch(`devices/${FETCH_DEVICES_HUBITAT}`);
+  },
 };
 </script>
 
@@ -32,5 +34,8 @@ export default {
 }
 .shadow-small {
   text-shadow: #000 1px 1px 0px;
+}
+.v-tooltip__content.menuable__content__active {
+  opacity: 0.95 !important;
 }
 </style>

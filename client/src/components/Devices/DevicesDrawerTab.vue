@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import DevicesList from "./DevicesList";
+import DevicesList from "./DevicesList/DevicesList";
 export default {
   name: "hd-DevicesDrawerTab",
   components: {
