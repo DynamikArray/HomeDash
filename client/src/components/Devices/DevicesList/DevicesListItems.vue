@@ -15,6 +15,11 @@
             <div class="d-flex align-center">
               {{ device.label }}
             </div>
+            <div class="d-flex align-baseline">
+              <v-btn small icon color="grey lighten-1">
+                <v-icon small>fas fa-ellipsis-v</v-icon>
+              </v-btn>
+            </div>
           </div>
         </v-list-item-title>
         <v-list-item-subtitle>

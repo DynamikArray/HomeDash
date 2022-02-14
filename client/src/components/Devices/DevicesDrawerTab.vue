@@ -1,6 +1,17 @@
 <template>
-  <div class="pa-1">
-    <div class="text-center text-h6">Devices List:</div>
+  <div class="secondary darken-1 pa-1">
+    <div class="pa-2">
+      <h4 class="text-left">
+        <v-icon small>fas fa-laptop-house</v-icon>
+        Device Information
+      </h4>
+      <v-divider class="my-2"></v-divider>
+      <p class="caption">
+        Search and Filter all devices. This includes all devices shared from Hubitat and saved to HomeDash. You may view
+        their attributes, capabilities & commands, as well as configure them for use inside of HomeDash.
+      </p>
+    </div>
+
     <DevicesList />
   </div>
 </template>

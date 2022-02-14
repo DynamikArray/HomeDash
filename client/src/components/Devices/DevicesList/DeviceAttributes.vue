@@ -1,16 +1,17 @@
 <template>
   <div class="hd-DeviceAttributes">
-    <v-tooltip left color="grey darken-3 shadow-small">
+    <v-tooltip left color="grey darken-3 shadow-small" :open-on-focus="false" :open-on-hover="false">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="info darken-2" small v-bind="attrs" v-on="on">
+        <v-chip label color="info darken-2" small v-bind="attrs" v-on="on" class="shadow">
           <span class="mr-1 tiny">{{ numberOfItems }}</span
           >Attributes
-        </v-btn>
+        </v-chip>
       </template>
       <h5>Device Attributes</h5>
       <div class="" v-for="(attribute, index) in attributes" :key="`${attribute}_${index}`">
         <li class="caption">
-          {{ attribute }}
+          <b>{{ index }}</b
+          >:{{ attribute || "null" }}
         </li>
       </div>
     </v-tooltip>
