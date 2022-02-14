@@ -7,8 +7,8 @@ import { APP_TOGGLE_DRAWER, APP_DRAWER_TAB } from "../store.constants";
 const app = {
   namespaced: true,
   state: {
-    drawer: false,
-    drawerTab: 0,
+    drawer: true,
+    drawerTab: 1,
   },
   getters: {
     getAppDrawer: (state) => {
