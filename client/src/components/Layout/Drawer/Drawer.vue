@@ -1,5 +1,12 @@
 <template>
-  <v-navigation-drawer :value="appDrawer" app right floating class="hd-LayoutDrawer grey darken-4" width="25vw">
+  <v-navigation-drawer
+    :value="appDrawer"
+    app
+    right
+    floating
+    class="hd-LayoutDrawer grey darken-3"
+    :width="calculatedWidth"
+  >
     <DrawerTabs />
   </v-navigation-drawer>
 </template>
@@ -17,6 +24,18 @@ export default {
     ...mapGetters({
       appDrawer: "app/getAppDrawer",
     }),
+    calculatedWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "";
+        case "sm":
+          return "65vw";
+        case "md":
+          return "45vw";
+        default:
+          return "35vw";
+      }
+    },
   },
 };
 </script>

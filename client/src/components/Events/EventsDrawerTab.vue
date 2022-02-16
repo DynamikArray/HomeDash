@@ -1,6 +1,5 @@
 <template>
-  <div class="pa-1">
-    <div class="text-center text-h6">Events List:</div>
+  <div class="pa-1 grey darken-3">
     <EventsList />
   </div>
 </template>

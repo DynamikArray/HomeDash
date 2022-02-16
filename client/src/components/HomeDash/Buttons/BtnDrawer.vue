@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex">
     <div v-if="closeButton" class="d-flex align-top mt-1 mr-1">
-      <v-btn icon @click="onClickHandler"><v-icon>far fa-times-circle</v-icon></v-btn>
+      <v-btn color="red" icon @click="onClickHandler"><v-icon class="shadow">fas fa-times-circle</v-icon></v-btn>
     </div>
 
     <div v-if="!closeButton" class="d-flex align-baseline justify-end">

@@ -1,5 +1,5 @@
 <template>
-  <div class="secondary darken-1 pa-1">
+  <div class="grey darken-3 pa-1">
     <div class="pa-2">
       <h4 class="text-left">
         <v-icon small>fas fa-laptop-house</v-icon>

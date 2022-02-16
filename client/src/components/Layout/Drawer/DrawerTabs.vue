@@ -1,7 +1,7 @@
 <template>
   <vuescroll :ops="scrollOptions" class="mr-1">
     <div class="hd-DrawerTabs fill-height">
-      <v-tabs v-model="drawerTab" grow center-active color="primary" active-class="">
+      <v-tabs v-model="drawerTab" grow center-active color="primary" active-class="grey darken-3">
         <v-tab><v-icon class="mr-1">fas fa-laptop-house</v-icon>Devices </v-tab>
         <v-tab><v-icon class="mr-1">fas fa-stream</v-icon>Events </v-tab>
         <BtnDrawer closeButton />

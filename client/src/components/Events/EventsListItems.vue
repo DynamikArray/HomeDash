@@ -25,7 +25,7 @@
         </v-list-item-subtitle>
       </v-list-item-content>
 
-      <v-list-item-avatar width="60px"> {{ message.value }} {{ unitValue(message.unit) }} </v-list-item-avatar>
+      <v-list-item-avatar width="80px" tile> {{ message.value }} {{ unitValue(message.unit) }} </v-list-item-avatar>
     </v-list-item>
   </div>
 </template>
@@ -43,9 +43,6 @@ export default {
   },
   methods: {
     /**
-     * [iconType description]
-     * @param  {[type]} val [description]
-     * @return {[type]}     [description]
      */
     iconType(val) {
       let iconString = "";
@@ -59,9 +56,6 @@ export default {
       return iconString;
     },
     /**
-     * [unitValue description]
-     * @param  {[type]} unit [description]
-     * @return {[type]}      [description]
      */
     unitValue(unit) {
       if (unit === null || unit === "null") {

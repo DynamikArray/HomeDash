@@ -14,8 +14,6 @@
           :slideY="false"
         >
           <div class="text-caption" v-if="mostRecent">
-            Source: {{ mostRecent.source }} - Name: {{ mostRecent.name }} - DeviceId: {{ mostRecent.deviceId }} -
-            DisplayName: {{ mostRecent.displayName }} - Value: {{ mostRecent.value }} - Desc:
             {{ mostRecent.descriptionText }}
           </div>
           <div v-if="!mostRecent">No events yet.</div>
