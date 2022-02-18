@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-const { logger } = require("../util/logger");
 
 const { DB_NAME, DB_URL } = require("../config/config.js");
 
-const Things = require("../models/thingSchema");
+const Device = require("../models/deviceSchema");
 
-const connectDb = () => { 
+const connectDb = () => {
   return mongoose.connect(`mongodb://${DB_URL}:27017/${DB_NAME}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -14,6 +13,6 @@ const connectDb = () => {
   });
 };
 
-const models = { Things };
+const models = { Device };
 //export default models;
 module.exports = { models, connectDb };

@@ -4,11 +4,18 @@ const serveStatic = require("serve-static");
 const morgan = require("morgan");
 const history = require("connect-history-api-fallback");
 
+const bodyParser = require("body-parser");
+
 //our winston instance
 const { logger } = require("./util/logger");
 
 //App and Logger
 const app = require("express")();
+
+//Assign middlewares and plugins
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(morgan("common"));
 
 //Http and Socket Servers

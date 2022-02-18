@@ -3,7 +3,7 @@
 //Default Config
 let config = {
   APPLICATION_NAME: "Sample Application API Server",
-  DB_NAME: "sampleApplication",
+  DB_NAME: "HomeDash",
   DB_URL: "localhost",
   RUN_SCHEDULED_JOBS: false,
   JOB_ONE_INTERVAL: "*/1 * * * *",
