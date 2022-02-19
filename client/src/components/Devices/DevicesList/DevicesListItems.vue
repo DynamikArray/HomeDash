@@ -16,9 +16,7 @@
               {{ device.label }}
             </div>
             <div class="d-flex align-baseline">
-              <v-btn small icon color="grey lighten-1">
-                <v-icon small>fas fa-ellipsis-v</v-icon>
-              </v-btn>
+              <DeviceActionMenu @clicked="addDeviceHandler(device)" />
             </div>
           </div>
         </v-list-item-title>
@@ -47,11 +45,13 @@
 </template>
 
 <script>
+import { CREATE_DEVICE_HD } from "@/store/store.constants.js";
 import { DEVICE_TYPES } from "../devices.constants.js";
 
 import DeviceAttributes from "./DeviceAttributes";
 import DeviceCapabilities from "./DeviceCapabilities";
 import DeviceCommands from "./DeviceCommands";
+import DeviceActionMenu from "./DeviceActionMenu";
 
 export default {
   name: "hd-DevicesListItems",
@@ -65,8 +65,13 @@ export default {
     DeviceAttributes,
     DeviceCapabilities,
     DeviceCommands,
+    DeviceActionMenu,
   },
   methods: {
+    addDeviceHandler(device) {
+      this.$store.dispatch(`devices/${CREATE_DEVICE_HD}`, { device });
+    },
+
     /*
 
      */

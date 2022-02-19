@@ -1,51 +1,52 @@
 const mongoose = require("mongoose");
 
-const DeviceSchema = new mongoose.Schema({
-  timestamp: {
-    type: String,
-    required: false,
+const DeviceSchema = new mongoose.Schema(
+  {
+    device: {
+      attributes: {
+        type: Object,
+        require: true,
+      },
+      capabilities: {
+        type: Array,
+        require: true,
+      },
+      commands: {
+        type: Array,
+        require: true,
+      },
+      date: {
+        type: String,
+        require: false,
+      },
+      id: {
+        type: String,
+        require: true,
+      },
+      label: {
+        type: String,
+        require: true,
+      },
+      manufacturer: {
+        type: String,
+        require: false,
+      },
+      model: {
+        type: String,
+        require: false,
+      },
+      name: {
+        type: String,
+        require: true,
+      },
+      type: {
+        type: String,
+        require: true,
+      },
+    },
   },
-  attributes: {
-    type: Object,
-    require: false,
-  },
-  capabilities: {
-    type: Array,
-    require: false,
-  },
-  commands: {
-    type: Array,
-    require: false,
-  },
-  date: {
-    type: String,
-    require: false,
-  },
-  id: {
-    type: String,
-    require: false,
-  },
-  label: {
-    type: String,
-    require: false,
-  },
-  manufacturer: {
-    type: String,
-    require: false,
-  },
-  model: {
-    type: String,
-    require: false,
-  },
-  name: {
-    type: String,
-    require: false,
-  },
-  type: {
-    type: String,
-    require: false,
-  },
-});
+  { timestamps: true }
+);
 
 //Make this collection singular later?
 const Device = mongoose.model("Device", DeviceSchema);

@@ -7,6 +7,9 @@ import {
   FETCH_DEVICES_HUBITAT,
   FETCH_DEVICES_HUBITAT_LOADING,
   FETCH_DEVICES_HUBITAT_RESULTS,
+  CREATE_DEVICE_HD,
+  CREATE_DEVICE_HD_LOADING,
+  CREATE_DEVICE_HD_RESULTS,
 } from "../store.constants";
 
 const devices = {
@@ -14,6 +17,8 @@ const devices = {
   state: {
     hubitatLoading: false,
     hubitatDevices: [],
+    homedashLoading: false,
+    homedashDevices: [],
   },
   getters: {
     getHubitatLoading: (state) => {
@@ -30,6 +35,12 @@ const devices = {
     [FETCH_DEVICES_HUBITAT_RESULTS](state, results) {
       state.hubitatDevices = results;
     },
+    [CREATE_DEVICE_HD_LOADING](state, { loading }) {
+      state.homedashLoading = loading;
+    },
+    [CREATE_DEVICE_HD_RESULTS](state, results) {
+      state.homedashDevices = { ...state.homedashDevices, ...results };
+    },
   },
   actions: {
     async [FETCH_DEVICES_HUBITAT]({ dispatch, commit }) {
@@ -43,6 +54,20 @@ const devices = {
         { root: true }
       );
       if (result.data) commit(`devices/${FETCH_DEVICES_HUBITAT_RESULTS}`, result.data, { root: true });
+    },
+
+    async [CREATE_DEVICE_HD]({ dispatch, commit }, device) {
+      const result = await dispatch(
+        `api/${MAKE_API_CALL}`,
+        {
+          method: "post",
+          url: "/devices/hd",
+          params: device,
+          loading: `devices/${CREATE_DEVICE_HD_LOADING}`,
+        },
+        { root: true }
+      );
+      if (result.data) commit(`devices/${CREATE_DEVICE_HD_RESULTS}`, result.data, { root: true });
     },
   },
 };
