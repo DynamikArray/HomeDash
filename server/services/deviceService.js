@@ -7,7 +7,7 @@ const deviceService = () => ({
     try {
       const filter = {};
       const allDevices = await Device.find(filter);
-      return { result: allDevices };
+      return { results: allDevices };
     } catch (e) {
       logger.error("deviceService | getAllDevices | error=" + e.message);
       return { error: e.message };
@@ -22,8 +22,8 @@ const deviceService = () => ({
         { hubitat: newDevice.hubitat },
         { new: true, upsert: true }
       );
-      if (deviceSaveResult) return { result: deviceSaveResult };
-      return { result: deviceSaveResult };
+      if (deviceSaveResult) return { results: deviceSaveResult };
+      return { results: deviceSaveResult };
     } catch (e) {
       logger.error("deviceService | createDevice | error=" + e.message);
       return { error: e.message };

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { FETCH_DEVICES_HUBITAT } from "@/store/store.constants.js";
+import { FETCH_DEVICES_HUBITAT, FETCH_DEVICES_HD } from "@/store/store.constants.js";
 
 import Header from "@/components/Layout/Header";
 import Drawer from "@/components/Layout/Drawer/Drawer";
@@ -24,6 +24,7 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch(`devices/${FETCH_DEVICES_HUBITAT}`);
+    await this.$store.dispatch(`devices/${FETCH_DEVICES_HD}`);
   },
 };
 </script>

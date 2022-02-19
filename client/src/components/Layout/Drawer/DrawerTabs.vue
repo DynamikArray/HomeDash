@@ -9,10 +9,10 @@
 
       <v-tabs-items class="hd-DrawerTabsItems fill-height" v-model="drawerTab">
         <v-tab-item key="devicesTab" class="fill-height">
-          <DevicesDrawerTab />
+          <DevicesDrawerTab class="px-4" />
         </v-tab-item>
         <v-tab-item key="eventsTab">
-          <EventsDrawerTab />
+          <EventsDrawerTab class="px-2" />
         </v-tab-item>
       </v-tabs-items>
     </div>
