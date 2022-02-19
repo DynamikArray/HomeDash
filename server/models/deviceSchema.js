@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const DeviceSchema = new mongoose.Schema(
   {
-    device: {
+    hubitat: {
       attributes: {
         type: Object,
         require: true,

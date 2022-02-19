@@ -26,11 +26,11 @@ async function getAllHomeDashDevices(req, res, next) {
 
 async function createDevice(req, res, next) {
   try {
-    if (!req.body.device) {
-      res.send({ error: "No Device in body payload" });
+    if (!req.body.hubitat) {
+      res.send({ error: "No Hubitat in body payload" });
     } else {
-      const device = req.body.device;
-      const result = await deviceService.createDevice({ device: device });
+      const hubitat = req.body.hubitat;
+      const result = await deviceService.createDevice({ hubitat });
       res.send(result);
     }
   } catch (e) {

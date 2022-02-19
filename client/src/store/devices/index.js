@@ -62,7 +62,7 @@ const devices = {
         {
           method: "post",
           url: "/devices/hd",
-          params: device,
+          params: { hubitat: device },
           loading: `devices/${CREATE_DEVICE_HD_LOADING}`,
         },
         { root: true }

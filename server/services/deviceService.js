@@ -18,8 +18,8 @@ const deviceService = () => ({
   createDevice: async (newDevice) => {
     try {
       const deviceSaveResult = await Device.findOneAndUpdate(
-        { "device.id": newDevice.device.id },
-        { device: newDevice.device },
+        { "hubitat.id": newDevice.hubitat.id },
+        { hubitat: newDevice.hubitat },
         { new: true, upsert: true }
       );
       if (deviceSaveResult) return { result: deviceSaveResult };

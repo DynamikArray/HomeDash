@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     addDeviceHandler(device) {
-      this.$store.dispatch(`devices/${CREATE_DEVICE_HD}`, { device });
+      this.$store.dispatch(`devices/${CREATE_DEVICE_HD}`, device);
     },
 
     /*
