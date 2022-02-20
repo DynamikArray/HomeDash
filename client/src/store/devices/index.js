@@ -12,7 +12,7 @@ import {
   FETCH_DEVICES_HD_RESULTS,
   CREATE_DEVICE_HD,
   CREATE_DEVICE_HD_LOADING,
-  //CREATE_DEVICE_HD_RESULTS,
+  UPDATE_DEVICE_FROM_MESSAGE,
 } from "../store.constants";
 
 const devices = {
@@ -33,13 +33,35 @@ const devices = {
     getHomedashDevices: (state) => {
       return state.homedashDevices;
     },
+    getHubitatDevicesAsArray: (state) => {
+      return Object.keys(state.hubitatDevices).reduce((acc, device) => {
+        acc.push(state.hubitatDevices[device]);
+        return acc;
+      }, []);
+    },
+    getDevices: (state) => {
+      const hub = state.hubitatDevices;
+      const dash = state.homedashDevices;
+
+      if (Object.keys(hub).length > 0 && dash.length > 0) {
+        dash.forEach((device, index) => {
+          dash[index].hubitat = hub[device.hubitat.id];
+        });
+        return dash;
+      }
+      return dash;
+    },
   },
   mutations: {
     [FETCH_DEVICES_HUBITAT_LOADING](state, { loading }) {
       state.hubitatLoading = loading;
     },
     [FETCH_DEVICES_HUBITAT_RESULTS](state, results) {
-      state.hubitatDevices = results;
+      const devices = results.reduce((acc, device) => {
+        acc[device.id] = device;
+        return acc;
+      }, {});
+      state.hubitatDevices = devices;
     },
     [FETCH_DEVICES_HD_LOADING](state, { loading }) {
       state.homedashLoading = loading;
@@ -58,6 +80,13 @@ const devices = {
       //state.homedashDevices = devices;
     },
     */
+    [UPDATE_DEVICE_FROM_MESSAGE](state, message) {
+      const curDevice = state.hubitatDevices[message.deviceId];
+      if (message.name == "switch") {
+        curDevice.attributes.switch = message.value;
+      }
+      state.hubitatDevices[message.deviceId] = curDevice;
+    },
   },
   actions: {
     async [FETCH_DEVICES_HUBITAT]({ dispatch, commit }) {

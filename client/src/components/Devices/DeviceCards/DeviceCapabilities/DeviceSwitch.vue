@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <v-switch inset v-model="switchStatus"></v-switch>
+  <div class="d-flex align-center justify-center">
+    <div class="d-flex mr-2 text-subtitle-1 text-uppercase">
+      {{ switchStatus ? "On" : "Off" }}
+    </div>
+    <div class="d-flex mx-1">
+      <v-switch inset v-model="switchStatus"></v-switch>
+    </div>
   </div>
 </template>
 

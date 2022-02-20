@@ -1,13 +1,27 @@
+const { DEVICE_TYPES } = require("../components/Devices/devices.constants.js");
+
 const CAPABILITIES = {
   SWITCH: "Switch",
 };
 
-const hasCapability = (capabilities, capability) => {
+function hasCapability(capabilities, capability) {
   return capabilities.includes(capability);
-};
+}
 
-const hasSwitchCapability = (capabilities) => {
+function hasSwitchCapability(capabilities) {
   return hasCapability(capabilities, CAPABILITIES.SWITCH);
-};
+}
 
-module.exports = { hasSwitchCapability };
+function iconType(val) {
+  let iconString = "";
+
+  if (DEVICE_TYPES[val]) {
+    iconString = DEVICE_TYPES[val].iconString;
+  } else {
+    iconString = "fas fa-question-circle";
+  }
+
+  return iconString;
+}
+
+module.exports = { hasSwitchCapability, iconType };

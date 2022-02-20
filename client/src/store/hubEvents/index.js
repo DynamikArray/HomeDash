@@ -4,6 +4,8 @@ Vue.use(Vuex);
 
 import isEqual from "lodash.isequal";
 
+import { HUBEVENT_MESSAGE_RESULT, UPDATE_DEVICE_FROM_MESSAGE } from "@/store/store.constants.js";
+
 const hubEvents = {
   namespaced: true,
   state: {
@@ -24,7 +26,7 @@ const hubEvents = {
     },
   },
   mutations: {
-    SOCKET_HUBEVENT_MESSAGE(state, val) {
+    [HUBEVENT_MESSAGE_RESULT](state, val) {
       let counter = 1;
       const messages = [...state.events];
 
@@ -53,13 +55,10 @@ const hubEvents = {
     },
   },
   actions: {
-    /*
     socket_hubEventMessage({ commit }, message) {
-      //handle incoming hub messages
-      console.log("hubEventMessage = ", message);
-      commit("STUF AND THINGS");
+      commit(`hubEvents/${HUBEVENT_MESSAGE_RESULT}`, message, { root: true });
+      commit(`devices/${UPDATE_DEVICE_FROM_MESSAGE}`, message, { root: true });
     },
-    */
   },
 };
 

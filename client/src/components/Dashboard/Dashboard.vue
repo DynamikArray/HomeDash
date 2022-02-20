@@ -48,7 +48,7 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      devices: "devices/getHomedashDevices",
+      devices: "devices/getDevices",
     }),
     deviceLayout() {
       const layout = [];

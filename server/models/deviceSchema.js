@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const DeviceSchema = new mongoose.Schema(
   {
+    groups: {
+      type: Array,
+    },
     hubitat: {
       attributes: {
         type: Object,

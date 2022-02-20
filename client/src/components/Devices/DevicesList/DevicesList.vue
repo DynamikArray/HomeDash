@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      hubitatDevices: "devices/getHubitatDevices",
+      hubitatDevices: "devices/getHubitatDevicesAsArray",
       hubitatLoading: "devices/getHubitatLoading",
     }),
   },
