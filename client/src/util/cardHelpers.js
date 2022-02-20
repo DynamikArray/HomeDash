@@ -1,4 +1,4 @@
-const { DEVICE_TYPES } = require("../components/Devices/devices.constants.js");
+const { DEVICE_TYPES } = require("../constants/devices.constants.js");
 
 const CAPABILITIES = {
   SWITCH: "Switch",

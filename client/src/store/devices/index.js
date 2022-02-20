@@ -13,11 +13,14 @@ import {
   CREATE_DEVICE_HD,
   CREATE_DEVICE_HD_LOADING,
   UPDATE_DEVICE_FROM_MESSAGE,
+  SEND_DEVICE_COMMAND,
+  SEND_DEVICE_COMMAND_LOADING,
 } from "../store.constants";
 
 const devices = {
   namespaced: true,
   state: {
+    commandLoading: false,
     hubitatLoading: false,
     hubitatDevices: [],
     homedashLoading: false,
@@ -87,6 +90,9 @@ const devices = {
       }
       state.hubitatDevices[message.deviceId] = curDevice;
     },
+    [SEND_DEVICE_COMMAND_LOADING](state, { loading }) {
+      state.commandLoading = loading;
+    },
   },
   actions: {
     async [FETCH_DEVICES_HUBITAT]({ dispatch, commit }) {
@@ -130,6 +136,23 @@ const devices = {
         dispatch(`devices/${FETCH_DEVICES_HD}`, {}, { root: true });
         //commit(`devices/${CREATE_DEVICE_HD_RESULTS}`, result.data, { root: true });
         //
+      }
+    },
+
+    async [SEND_DEVICE_COMMAND]({ dispatch }, { deviceId, payload }) {
+      const result = await dispatch(
+        `api/${MAKE_API_CALL}`,
+        {
+          method: "post",
+          url: `/devices/command/${deviceId}`,
+          params: { payload },
+          loading: `devices/${SEND_DEVICE_COMMAND_LOADING}`,
+        },
+        { root: true }
+      );
+      if (result.data) {
+        //handle the result of command
+        console.log(result.data);
       }
     },
   },

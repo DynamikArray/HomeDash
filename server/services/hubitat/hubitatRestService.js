@@ -5,22 +5,27 @@ const hubitatRestService = () => ({
   getAllDevices: async () => {
     try {
       const results = await axiosHubitat.get("/devices/all");
-
       if (results) {
         return results.data;
-        /*   To create an indexed by id object
-        return results.data.reduce((acc, result) => {
-          acc[result.id] = result;
-          return acc;
-        }, {});
-        */
       }
       return { results: false };
     } catch (e) {
       logger.error("hubitatService | getAllDevices | error=" + e.message);
       return { error: e.message };
-    } finally {
-      //
+    }
+  },
+
+  sendCommand: async (deviceId, { command }) => {
+    try {
+      const url = `/devices/${deviceId}/${command}`;
+      const results = await axiosHubitat.get(`/devices/${deviceId}/${command}`);
+      if (results) {
+        return results.data;
+      }
+      return { results: false };
+    } catch (e) {
+      logger.error("hubitatService | sendCommand | error=" + e.message);
+      return { error: e.message };
     }
   },
 });

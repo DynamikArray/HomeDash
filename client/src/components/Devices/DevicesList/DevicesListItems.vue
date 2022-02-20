@@ -46,7 +46,7 @@
 
 <script>
 import { CREATE_DEVICE_HD } from "@/store/store.constants.js";
-import { DEVICE_TYPES } from "../devices.constants.js";
+import { DEVICE_TYPES } from "@/constants/devices.constants.js";
 
 import DeviceAttributes from "./DeviceAttributes";
 import DeviceCapabilities from "./DeviceCapabilities";

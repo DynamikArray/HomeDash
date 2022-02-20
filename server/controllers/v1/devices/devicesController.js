@@ -39,4 +39,17 @@ async function createDevice(req, res, next) {
   }
 }
 
-module.exports = { getAllHubitat, getAllHomeDashDevices, createDevice };
+async function sendCommand(req, res, next) {
+  try {
+    //we need device id from route, and payload from body
+    const payload = req.body.payload;
+    const deviceId = req.params.deviceId;
+    const result = await hubitatRestService.sendCommand(deviceId, payload);
+    res.send(result);
+  } catch (e) {
+    logger.error("devicesController | sendCommand | error=" + e.message);
+    res.send({ error: e.message });
+  }
+}
+
+module.exports = { getAllHubitat, getAllHomeDashDevices, createDevice, sendCommand };

@@ -7,6 +7,8 @@ router.get("/all/hubitat", devicesController.getAllHubitat);
 router.get("/all/homedash", devicesController.getAllHomeDashDevices);
 //crud
 router.post("/hd", devicesController.createDevice);
+router.post("/command/:deviceId", devicesController.sendCommand);
+
 //router.get("/hd/:id", devicesController.getDevice);
 //router.put("/hd/:id", devicesController.getAllHubitat);
 //router.delete("/hd/:id", devicesController.getAllHubitat);

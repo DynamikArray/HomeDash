@@ -31,7 +31,7 @@
 </template>
 
 <script>
-const { EVENT_NAMES } = require("./events.constants.js");
+const { EVENT_NAMES } = require("@/constants/events.constants.js");
 
 export default {
   name: "hd-EventsListItems",

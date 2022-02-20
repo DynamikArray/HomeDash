@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import { SEND_DEVICE_COMMAND } from "@/store/store.constants.js";
+import { COMMANDS } from "@/constants/command.constants.js";
+
 export default {
   name: "hd-DeviceSwitch",
   props: {
@@ -18,6 +21,9 @@ export default {
     },
   },
   computed: {
+    deviceId() {
+      return this.device?.hubitat?.id;
+    },
     switchStatus: {
       get() {
         const status = this.device?.hubitat?.attributes?.switch;
@@ -26,9 +32,27 @@ export default {
         return false;
       },
       set(value) {
-        if (!value) this.device.hubitat.attributes.switch = "off";
-        if (value) this.device.hubitat.attributes.switch = "on";
+        if (!value) {
+          this.sendCommand(COMMANDS.OFF);
+          this.device.hubitat.attributes.switch = COMMANDS.OFF;
+        }
+        if (value) {
+          this.sendCommand(COMMANDS.ON);
+          this.device.hubitat.attributes.switch = COMMANDS.ON;
+        }
       },
+    },
+  },
+  methods: {
+    sendCommand(value) {
+      const actionPayload = {
+        deviceId: this.deviceId,
+        payload: {
+          command: value,
+        },
+      };
+      this.$store.dispatch(`devices/${SEND_DEVICE_COMMAND}`, actionPayload);
+      console.log("Send this value", actionPayload);
     },
   },
 };
