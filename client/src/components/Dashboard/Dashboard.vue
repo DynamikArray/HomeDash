@@ -10,7 +10,6 @@
         :responsive="responsive"
         :vertical-compact="true"
         :use-css-transforms="true"
-        @breakpoint-changed="breakpointChangedEvent"
       >
         <grid-item
           v-for="item in deviceLayout"
@@ -22,7 +21,7 @@
           :i="item.i"
           :key="item.i"
         >
-          {{ item.device.hubitat.name }}
+          <DeviceCard :device="item.device" />
         </grid-item>
       </grid-layout>
     </div>
@@ -32,11 +31,14 @@
 <script>
 import { mapGetters } from "vuex";
 import VueGridLayout from "vue-grid-layout";
+import DeviceCard from "@/components/Devices/DeviceCards/DeviceCard";
+
 export default {
   name: "hd-Dashboard",
   components: {
     GridLayout: VueGridLayout.GridLayout,
     GridItem: VueGridLayout.GridItem,
+    DeviceCard,
   },
   data: () => ({
     responsive: true,
@@ -66,16 +68,18 @@ export default {
     },
   },
   methods: {
+    /*  - use with @breakpoint-changed="breakpointChangedEvent" on component
     breakpointChangedEvent(newBreakpoint, newLayout) {
       console.log("Size was changed vuetify newbreak", this.$vuetify.breakpoint.name, newBreakpoint, newLayout);
     },
+    */
   },
 };
 </script>
 
 <style>
 .vue-grid-item {
-  background: #777;
+  /* background: #777; */
 }
 
 .vue-grid-item.vue-grid-placeholder {
