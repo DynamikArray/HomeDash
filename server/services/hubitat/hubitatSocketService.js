@@ -3,7 +3,7 @@ const WebSocketClient = require("websocket").client;
 
 //utils
 const { logger } = require("../../util/logger");
-const { em } = require("../../services/EventEmitterService");
+const { em } = require("../../services/eventEmitterService");
 
 //Hubitat Config
 const { baseURL, emitterPrefix, events } = require("../../config/serviceConfigs").hubitatSocket;

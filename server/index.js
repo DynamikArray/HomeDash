@@ -9,7 +9,7 @@ const { server, io } = require("./server");
 //Mongo
 const { connectDb } = require("./services/mongooseService");
 //Event Emitter
-const { em } = require("./services/EventEmitterService");
+const { em } = require("./services/eventEmitterService");
 //Hubitat Socket Event Stream
 const hubitatSocketClient = require("./services/hubitat/hubitatSocketService")();
 
