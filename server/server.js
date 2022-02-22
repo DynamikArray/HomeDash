@@ -12,6 +12,16 @@ const { logger } = require("./util/logger");
 //App and Logger
 const app = require("express")();
 
+//rtsp relay
+const { proxy, scriptUrl } = require("rtsp-relay")(app);
+
+const handler = proxy({
+  url: `rtsp://192.168.0.1:7441`,
+  // if your RTSP stream need credentials, include them in the URL as above
+  verbose: false,
+});
+app.ws("/api/stream", handler);
+
 //Assign middlewares and plugins
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,6 +34,20 @@ const io = require("socket.io")(server, { serveClient: false });
 
 //Mongo
 const { models, connectDb } = require("./services/mongooseService");
+
+app.get("/api/scriptUrl", (req, res) =>
+  res.send(`
+  <canvas id='canvas'></canvas>
+
+  <script src='${scriptUrl}'></script>
+  <script>
+    loadPlayer({
+      url: 'ws://' + location.host + '/api/stream',
+      canvas: document.getElementById('canvas')
+    });
+  </script>
+`)
+);
 
 //Router
 const router = require("./routes/router.js");
